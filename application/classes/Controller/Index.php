@@ -19,7 +19,7 @@ class Controller_Index extends Controller_Template {
                     $errors['empty_message'] =  Kohana::message('message', 'empty_message');
                 }
             }
-            $content->messages = ORM::factory('message')->find_all();
+            $content->messages = ORM::factory('message')->order_by('id','desc')->find_all();
             $content->errors = $errors;
             $this->template->content = $content;
 	}    
